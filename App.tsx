@@ -1,4 +1,6 @@
 import React, {useState} from 'react';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {
   FlatList,
   StyleSheet,
@@ -8,7 +10,7 @@ import {
   View,
 } from 'react-native';
 
-function App(): React.JSX.Element {
+function Home(): React.JSX.Element {
   const [taskInput, setTaskInput] = useState('');
   const [tasks, setTasks] = useState<{id: string; text: string}[]>([]);
 
@@ -56,6 +58,23 @@ function App(): React.JSX.Element {
   );
 }
 
+const Stack = createNativeStackNavigator();
+function StackRoutes() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="home" component={Home} />
+    </Stack.Navigator>
+  );
+}
+
+export default function App() {
+  return (
+    <NavigationContainer>
+      <StackRoutes />
+    </NavigationContainer>
+  );
+}
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -99,5 +118,3 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 });
-
-export default App;
