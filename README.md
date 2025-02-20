@@ -1,5 +1,10 @@
 This PoC is to consolidate React Native learnings
 
+# Checklist
+- [x] Add navigation lib
+- [x] Create a route params
+- [ ] Create a global type to routes
+
 # Navigation and fetch
 
 - React Navigation
@@ -40,4 +45,21 @@ In **React Navigation**, dynamic configuration means changing screen options **a
 
 Handling types with Navigation component create a lots of side components. Maybe storage then in a specific folder to routes can provide a single source of truth and share types.
 
-TODO: use route params
+## Params
+
+Is indicate to read params based on props instead of useRoute custom hook because it is not type safe; When using TS.
+
+## Typescript
+
+Defining an global type you can infer a route params.
+
+React Navigation provides a default global type for route parameters, called `ReactNavigation.RootParamList`. If you don't explicitly define it, TypeScript assumes an empty object `{}`, which leads to errors like `"Argument of type 'string' is not assignable to parameter of type 'never'"` when calling `navigation.navigate('SomeScreen')`.
+
+It makes TypeScript more flexible and reduces the need for repetitive typing across your codebase.
+
+```
+declare global {
+  namespace ReactNavigation {
+    interface RootParamList extends RootStackParamList {}
+}
+```

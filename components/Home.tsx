@@ -58,6 +58,12 @@ export function Home(): React.JSX.Element {
         )}
       />
       <Button onPress={() => navigation.navigate('other')}>Go to Other</Button>
+      <Button
+        onPress={() =>
+          navigation.navigate('params', {foo: 'string', bar: 123})
+        }>
+        Go to Params
+      </Button>
     </View>
   );
 }

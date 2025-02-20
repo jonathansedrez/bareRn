@@ -3,11 +3,15 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
-import {Home, Other} from './components';
+import {Home, Other, Params} from './components';
 
 type StackRoutesParams = {
   home: undefined;
   other: undefined;
+  params: {
+    foo: string;
+    bar?: number;
+  };
 };
 export type NavigationStackRoutes =
   NativeStackNavigationProp<StackRoutesParams>;
@@ -22,6 +26,7 @@ function StackRoutes() {
         options={{headerShown: false}}
       />
       <Stack.Screen name="other" component={Other} />
+      <Stack.Screen name="params" component={Params} />
     </Stack.Navigator>
   );
 }
