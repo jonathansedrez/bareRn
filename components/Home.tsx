@@ -9,10 +9,9 @@ import {
   StyleSheet,
 } from 'react-native';
 import {Button} from '@react-navigation/elements';
-import {NavigationStackRoutes} from '../App';
 
 export function Home(): React.JSX.Element {
-  const navigation = useNavigation<NavigationStackRoutes>();
+  const navigation = useNavigation();
 
   const [taskInput, setTaskInput] = useState('');
   const [tasks, setTasks] = useState<{id: string; text: string}[]>([]);
@@ -62,7 +61,7 @@ export function Home(): React.JSX.Element {
         onPress={() =>
           navigation.navigate('params', {foo: 'string', bar: 123})
         }>
-        Go to Params
+        Go to Params  
       </Button>
     </View>
   );

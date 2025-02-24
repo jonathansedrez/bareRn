@@ -1,15 +1,14 @@
-import {RouteProp} from '@react-navigation/native';
+import {useRoute} from '@react-navigation/native';
 import {Text, View} from 'react-native';
-import {StackRoutesParams} from '../App';
+import {RouteProps} from '../route.types';
 
-type ParamsRouteProps = RouteProp<StackRoutesParams, 'params'>;
-
-export function Params({route}: {route: ParamsRouteProps}) {
+export function Params() {
+  const {params} = useRoute<RouteProps<'params'>>();
   return (
     <View>
       <Text>Params screen - Stack</Text>
-      <Text>Foo: {route.params.foo}</Text>
-      <Text>Bar: {route.params.foo}</Text>
+      <Text>Foo: {params.bar}</Text>
+      <Text>Bar: {params.foo}</Text>
     </View>
   );
 }

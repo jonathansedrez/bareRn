@@ -3,7 +3,10 @@ This PoC is to consolidate React Native learnings
 # Checklist
 - [x] Add navigation lib
 - [x] Create a route params
-- [ ] Create a global type to routes
+- [x] Create a global type to routes
+- [ ] Nesting navigators
+- [ ] Wizard routes
+- [ ] Try fetch approaches
 
 # Navigation and fetch
 
