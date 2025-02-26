@@ -7,6 +7,7 @@ export type RootStackParamList = {
     foo: string;
     bar?: number;
   };
+  tabs: undefined;
 };
 
 export type RouteProps<T extends keyof RootStackParamList> = RouteProp<
