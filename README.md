@@ -1,6 +1,7 @@
 This PoC is to consolidate React Native learnings
 
 # Checklist
+
 - [x] Add navigation lib
 - [x] Create a route params
 - [x] Create a global type to routes
@@ -66,3 +67,18 @@ declare global {
     interface RootParamList extends RootStackParamList {}
 }
 ```
+
+## Nesting navigation
+
+All componet there are nesting receive their own stack of navigation. If don't find any navigation the component will try the fetch this data from the parent.
+
+In the case where the stack navigation is:
+
+````
+RootStack (Stack Navigator)
+ ├── Home (Screen)
+ ├── Params (Screen)
+ ├── Tabs (Tab Navigator)
+ │    ├── Screen One (Screen) // go back will redirect to Home (if came from home screen)
+ │____├── Screen (Screen) // go back will redirect to Screen One (if came from tab screen one)
+````
