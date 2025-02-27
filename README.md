@@ -6,6 +6,8 @@ This PoC is to consolidate React Native learnings
 - [x] Create a route params
 - [x] Create a global type to routes
 - [x] Nesting navigators
+- [x] Force navigation between tabs
+- [ ] Type nested routes
 - [ ] Wizard routes
 - [ ] Try fetch approaches
 
@@ -74,11 +76,23 @@ All componet there are nesting receive their own stack of navigation. If don't f
 
 In the case where the stack navigation is:
 
-````
+```
 RootStack (Stack Navigator)
  ├── Home (Screen)
  ├── Params (Screen)
  ├── Tabs (Tab Navigator)
  │    ├── Screen One (Screen) // go back will redirect to Home (if came from home screen)
  │____├── Screen (Screen) // go back will redirect to Screen One (if came from tab screen one)
-````
+```
+
+### Typing nested routes
+
+Declare a global type to nesting route can create a bug because tabs one, two and three only exist inside Tab scree. You need to declare type to nested routes only inside Tab component. Example of wrong approach:
+
+```
+declare global {
+  namespace ReactNavigation {
+    interface RootParamList extends RootStackParamList, TabParamList {} // It cause a false type because nested route only exist on Tabs
+  }
+}
+```
