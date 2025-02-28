@@ -15,15 +15,8 @@ export type RouteProps<T extends keyof RootStackParamList> = RouteProp<
   T
 >;
 
-type TabParamList = {
-  one: undefined;
-  two: undefined;
-  three: undefined;
-};
-
 declare global {
   namespace ReactNavigation {
-    // Wrong type declaration 👇
-    interface RootParamList extends RootStackParamList, TabParamList {}
+    interface RootParamList extends RootStackParamList {}
   }
 }

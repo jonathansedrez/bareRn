@@ -1,12 +1,26 @@
 import {StyleSheet, Text, View} from 'react-native';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {useNavigation} from '@react-navigation/native';
+import {
+  BottomTabNavigationProp,
+  createBottomTabNavigator,
+} from '@react-navigation/bottom-tabs';
+import {CompositeNavigationProp} from '@react-navigation/native';
 import {Button} from '@react-navigation/elements';
+import {RootStackParamList} from '../route.types';
+import type {StackNavigationProp} from '@react-navigation/stack';
+
+type TabParamList = {
+  one: undefined;
+  two: undefined;
+  three: undefined;
+};
 
 const Tab = createBottomTabNavigator();
 
-const ScreenOne = () => {
-  const navigation = useNavigation();
+type ScreenOneProps = CompositeNavigationProp<
+  BottomTabNavigationProp<TabParamList, 'one'>,
+  StackNavigationProp<RootStackParamList>
+>;
+const ScreenOne = ({navigation}: ScreenOneProps) => {
   return (
     <View style={style.oneWrapper}>
       <Text>One</Text>
@@ -26,8 +40,11 @@ const ScreenOne = () => {
   );
 };
 
-const ScreenTwo = () => {
-  const navigation = useNavigation();
+type ScreenTwoProps = CompositeNavigationProp<
+  BottomTabNavigationProp<TabParamList, 'two'>,
+  StackNavigationProp<RootStackParamList>
+>;
+const ScreenTwo = ({navigation}: ScreenTwoProps) => {
   return (
     <View style={style.twoWrapper}>
       <Text>Two</Text>
@@ -47,8 +64,11 @@ const ScreenTwo = () => {
   );
 };
 
-const ScreenThree = () => {
-  const navigation = useNavigation();
+type ScreenThreeProps = CompositeNavigationProp<
+  BottomTabNavigationProp<TabParamList, 'three'>,
+  StackNavigationProp<RootStackParamList>
+>;
+const ScreenThree = ({navigation}: ScreenThreeProps) => {
   return (
     <View style={style.threeWrapper}>
       <Text>Three</Text>
