@@ -1,4 +1,5 @@
-import {RouteProp} from '@react-navigation/native';
+import {NavigatorScreenParams, RouteProp} from '@react-navigation/native';
+import {TabParamList} from './components';
 
 export type RootStackParamList = {
   home: undefined;
@@ -7,7 +8,7 @@ export type RootStackParamList = {
     foo: string;
     bar?: number;
   };
-  tabs: undefined;
+  tabs: NavigatorScreenParams<TabParamList>;
 };
 
 export type RouteProps<T extends keyof RootStackParamList> = RouteProp<

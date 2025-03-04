@@ -63,8 +63,12 @@ export function Home(): React.JSX.Element {
         }>
         Go to Params
       </Button>
-      <Button onPress={() => navigation.navigate('tabs')}>Go to Tabs</Button>
-      <Button onPress={() => navigation.navigate('two')}>
+      <Button
+        onPress={() =>
+          navigation.navigate('tabs', {
+            screen: 'two',
+          })
+        }>
         Go to Tabs ono tab two
       </Button>
     </View>

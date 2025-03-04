@@ -1,26 +1,24 @@
 import {StyleSheet, Text, View} from 'react-native';
-import {
-  BottomTabNavigationProp,
-  createBottomTabNavigator,
-} from '@react-navigation/bottom-tabs';
-import {CompositeNavigationProp} from '@react-navigation/native';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import type {BottomTabScreenProps} from '@react-navigation/bottom-tabs';
 import {Button} from '@react-navigation/elements';
 import {RootStackParamList} from '../route.types';
-import type {StackNavigationProp} from '@react-navigation/stack';
+import type {StackScreenProps} from '@react-navigation/stack';
+import type {CompositeScreenProps} from '@react-navigation/native';
 
-type TabParamList = {
+export type TabParamList = {
   one: undefined;
   two: undefined;
   three: undefined;
 };
 
-const Tab = createBottomTabNavigator();
+const Tab = createBottomTabNavigator<TabParamList>();
 
-type ScreenOneProps = CompositeNavigationProp<
-  BottomTabNavigationProp<TabParamList, 'one'>,
-  StackNavigationProp<RootStackParamList>
+type ScreenOneProps = CompositeScreenProps<
+  BottomTabScreenProps<TabParamList, 'one'>,
+  StackScreenProps<RootStackParamList>
 >;
-const ScreenOne = ({navigation}: ScreenOneProps) => {
+const ScreenOne: React.FC<ScreenOneProps> = ({navigation}) => {
   return (
     <View style={style.oneWrapper}>
       <Text>One</Text>
@@ -40,11 +38,11 @@ const ScreenOne = ({navigation}: ScreenOneProps) => {
   );
 };
 
-type ScreenTwoProps = CompositeNavigationProp<
-  BottomTabNavigationProp<TabParamList, 'two'>,
-  StackNavigationProp<RootStackParamList>
+type ScreenTwoProps = CompositeScreenProps<
+  BottomTabScreenProps<TabParamList, 'two'>,
+  StackScreenProps<RootStackParamList>
 >;
-const ScreenTwo = ({navigation}: ScreenTwoProps) => {
+const ScreenTwo: React.FC<ScreenTwoProps> = ({navigation}) => {
   return (
     <View style={style.twoWrapper}>
       <Text>Two</Text>
@@ -64,11 +62,11 @@ const ScreenTwo = ({navigation}: ScreenTwoProps) => {
   );
 };
 
-type ScreenThreeProps = CompositeNavigationProp<
-  BottomTabNavigationProp<TabParamList, 'three'>,
-  StackNavigationProp<RootStackParamList>
+type ScreenThreeProps = CompositeScreenProps<
+  BottomTabScreenProps<TabParamList, 'three'>,
+  StackScreenProps<RootStackParamList>
 >;
-const ScreenThree = ({navigation}: ScreenThreeProps) => {
+const ScreenThree: React.FC<ScreenThreeProps> = ({navigation}) => {
   return (
     <View style={style.threeWrapper}>
       <Text>Three</Text>
