@@ -9,6 +9,7 @@ export type RootStackParamList = {
     bar?: number;
   };
   tabs: NavigatorScreenParams<TabParamList>;
+  fetcher: undefined;
 };
 
 export type RouteProps<T extends keyof RootStackParamList> = RouteProp<

@@ -2,7 +2,7 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
-import {Home, Other, Params, Tabs} from './components';
+import {Fetcher, Home, Other, Params, Tabs} from './components';
 
 const Stack = createNativeStackNavigator();
 function StackRoutes() {
@@ -16,6 +16,7 @@ function StackRoutes() {
       <Stack.Screen name="other" component={Other} />
       <Stack.Screen name="params" component={Params} />
       <Stack.Screen name="tabs" component={Tabs} />
+      <Stack.Screen name="fetcher" component={Fetcher} />
     </Stack.Navigator>
   );
 }

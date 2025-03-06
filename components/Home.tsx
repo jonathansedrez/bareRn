@@ -71,6 +71,9 @@ export function Home(): React.JSX.Element {
         }>
         Go to Tabs ono tab two
       </Button>
+      <Button onPress={() => navigation.navigate('fetcher')}>
+        Go to fetcher
+      </Button>
     </View>
   );
 }

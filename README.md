@@ -7,9 +7,12 @@ This PoC is to consolidate React Native learnings
 - [x] Create a global type to routes
 - [x] Nesting navigators
 - [x] Force navigation between tabs
-- [ ] Type nested routes
-- [ ] Wizard routes
-- [ ] Try fetch approaches
+- [x] Type nested routes
+- [x] Add useEffect fetch
+- [x] Add SWR fetch
+- [ ] Add React query fetch2
+- [ ] Do a benchmark in fetch approaches
+- [ ] Add Suspense
 
 # Navigation and fetch
 
