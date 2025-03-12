@@ -14,7 +14,7 @@ This PoC is to consolidate React Native learnings
 - [ ] Do a benchmark in fetch approaches
 - [ ] Add Suspense
 
-# Navigation and fetch
+# Navigation
 
 - React Navigation
   - Js based
@@ -24,10 +24,6 @@ This PoC is to consolidate React Native learnings
   - Native based
   - Faster
   - More performative
-
-##### Fetch during navigation
-
-No native integration. Can use `react-query` or `SRW`
 
 ## Dynamic navigation
 
@@ -99,3 +95,25 @@ declare global {
   }
 }
 ```
+
+---
+
+# Fetch
+
+The performance.now() method returns a high-resolution timestamp representing the time in milliseconds since the page started loading.
+
+##### Fetch during navigation
+
+No native integration. Can use `react-query` or `SRW`
+
+##### performance.now()
+
+The `performance.now()` method returns a **high-resolution timestamp** representing the time in **milliseconds** since the page started loading.
+
+### Why Use `performance.now()` Instead of `Date.now()`?
+
+| Feature              | `performance.now()` | `Date.now()` |
+|----------------------|--------------------|--------------|
+| Precision           | Microseconds (~1μs) | Milliseconds (1ms) |
+| Affected by System Clock | No | Yes (can be changed by system settings) |
+| Monotonic (Always Increasing) | Yes | No (can jump backward/forward) |
