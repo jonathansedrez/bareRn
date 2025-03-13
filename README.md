@@ -117,3 +117,17 @@ The `performance.now()` method returns a **high-resolution timestamp** represent
 | Precision           | Microseconds (~1μs) | Milliseconds (1ms) |
 | Affected by System Clock | No | Yes (can be changed by system settings) |
 | Monotonic (Always Increasing) | Yes | No (can jump backward/forward) |
+
+
+##### Benckmarck SWR vs useEffect
+
+##### 1st attempt
+[Mount] Component mounted at 992900571.63ms
+[useEffect] Fetch started at 992900581.92ms
+[SWR] Fetch started at 992900585.09ms
+
+SWR started fetching 3.17ms after useEffect.
+
+Key points:
+- Since SWR uses a cache, it may wait a little before making a network request.
+- If the initial render is slow, useEffect can start later than expected, which can delay data fetching
